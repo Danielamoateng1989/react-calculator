@@ -1,70 +1,63 @@
-import React, { useState, useEffect } from 'react'
-import { Container } from 'react-bootstrap'
+import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+
+function Calculate() {
+  const [number1, setNumber1] = useState('');
+  const [number2, setNumber2] = useState('');
+  const [state, updateState] = useState(0);
 
 
-const Calculate = () => {
-  
-    const [currentSum,setCurrentSum]=useState(0);
-    const Add=(e)=>{
-        e.preventDefault();
-            let number1 = document.querySelector('#num1').value
-            let number2 = document.querySelector('#num2').value
+  function add() {
+    updateState(Number(number1) + Number(number2));
+  }
 
-            let result = Number(number1) + Number(number2)
-            console.log(result)
-            setCurrentSum(result)
+  function subtract() {
+    updateState(number1 - number2);
+      
+  }
 
-        }
+  function multiply() {
+      updateState(number1 * number2)
+  }
 
-    const multiply=(e)=>{
-        e.preventDefault();
-        let number1 = document.querySelector('#num1').value
-        let number2 = document.querySelector('#num2').value
-        
-        let result = number1 * number2
-        console.log(result)
-          
-      }
-    
-      const subtract=(e)=>{
-        e.preventDefault();
-        let number1 = document.querySelector('#num1').value
-        let number2 = document.querySelector('#num2').value
-        
-        let result = number1 - number2
-        console.log(result)
-          
-      }
-    
-      const divide=(e)=>{
-        e.preventDefault();
-        let number1 = document.querySelector('#num1').value
-        let number2 = document.querySelector('#num2').value
-        
-        let result = number1 / number2
-        console.log(result)
-          
-      }
+ function divide() {
+    updateState(number1 / number2)
 
-    return (
-        <>
-        <Container >
-        <h2 className="center-text">React-Calculator</h2>
-        </Container>
-        <form>
-        <button onClick={Add}>+</button>
-            <button onClick={subtract}>-</button>
-            <button onClick={multiply}>*</button>
-            <button onClick={divide}>/</button>
-            <button>Clear</button>
-            <input type="text" id="num1" placeholder="enter a number" />
-            <input type="text" id="num2" placeholder="enter a number" />
-            <input type="text" id="result" readOnly />   
-            
-      </form>
-       
-        </>
-    )
+ }
+  return (
+      
+    <>
+      <h1>React-Calculator</h1>
+
+      <div>
+        <input
+          type="number"
+          value={number1}
+          onChange={e => setNumber1(e.target.value)}
+          placeholder="0"
+        />
+        <input
+          type="number"
+          value={number2}
+          onChange={e => setNumber2(e.target.value)}
+          placeholder="0"
+        />
+      </div>
+
+      <div className="content">
+      <Button size="lg" className="content" onClick={add}>+</Button>
+      <Button size="lg" className="content" onClick={subtract}>-</Button>
+      <Button size="lg" className="content"onClick={multiply}>*</Button>
+      <Button size="lg" className="content"onClick={divide}>/</Button>
+      </div>
+
+      <div className="total">
+      <h1>{state}</h1>
+      </div>
+
+</>
+
+  );
 }
 
 export default Calculate
