@@ -9,6 +9,7 @@
 body {
   display: flex;
   justify-content: center;
+  font-family: 'Baloo Tammudu 2', cursive;
  
 }
 .center-text {
