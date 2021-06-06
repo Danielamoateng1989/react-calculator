@@ -1,10 +1,14 @@
 import React from 'react'
+import { Container }from 'react-bootstrap'
 
 
 const calculate = () => {
     return (
         <>
-        <h1>React-Calculator</h1>
+        
+        <h2 className="center-text">React-Calculator</h2>
+      
+
         </>
     )
 }
