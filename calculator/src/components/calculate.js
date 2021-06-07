@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
+
 
 function Calculate() {
   const [number1, setNumber1] = useState('');
@@ -45,14 +45,14 @@ function Calculate() {
       </div>
 
       <div className="content">
-      <Button size="lg" className="content" onClick={add}>+</Button>
-      <Button size="lg" className="content" onClick={subtract}>-</Button>
-      <Button size="lg" className="content"onClick={multiply}>*</Button>
-      <Button size="lg" className="content"onClick={divide}>/</Button>
+      <button size="lg" className="button1" onClick={add}>+</button>
+      <button size="lg" className="button1" onClick={subtract}>-</button>
+      <button size="lg" className="button1"onClick={multiply}>*</button>
+      <button size="lg" className="button1"onClick={divide}>/</button>
       </div>
 
       <div className="total">
-      <h1>{state}</h1>
+      <p className="content-size">{state}</p>
       </div>
 
 </>
